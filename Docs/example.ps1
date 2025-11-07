@@ -4,7 +4,7 @@
 
 # example #1
 
-# 0. loda the module
+# 0. load the module
 Import-Module C:\Coupacode\MonitorCalc
 
 # 1. Get the screen specifications for a sample monitor

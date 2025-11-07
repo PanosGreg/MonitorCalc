@@ -18,6 +18,10 @@ The main reason to use this, is to find out if a given (theoritical) spec has ad
 Furthermore you can also check the dimensions of the given screen, if it's too tall for your sitting position or too wide for your desk.  
 Finally it shows the required bandwidth based on a refresh rate in order to get an idea of what's needed to run this display.
 
+The module exposes 2 functions:
+- `Get-ScreenSpec`
+- `Show-ScreenSpec`
+
 ## Excel Sheet
 
 I've also included an excel file in this repo. The first tab has the same calulator as the function in this module, but in an easy to use graphical way, since excel can provide that.  
