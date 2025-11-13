@@ -230,5 +230,33 @@ class DataRate {
     static [double]$TB5_80       = 70.6   # <-- ThunderBolt 5 80gbps
     static [double]$TB5_120      = 106    # <-- ThunderBolt 5 120gbps
 
-    hidden DataRate () {}  # <-- hide the constructor from the end-user
+    hidden DataRate () {}  # <-- hide the constructor from the end-user (though it can still be used)
+}
+
+class MonitorComparison {
+    [string]$RealEstate
+    [string]$MorePixels
+    [string]$MoreClarity
+    [string]$SmallerText
+    [string]$Wider
+    [string]$Taller
+    [string]$WidthDiff
+    [string]$HeightDiff
+    [string]$PpiDiff
+
+    MonitorComparison () {}
+
+    [string] ToString () {
+        $msg = [string]::Empty
+        if ($this.MorePixels -eq 'Same number of pixels') {
+            $msg = 'Both Screen A and Screen B have about the same number of pixels'
+        }
+        elseif ($this.MorePixels -eq 'Screen B (Difference Spec)') {
+            $msg = '{0} has {1} more pixels than Screen A' -f $this.MorePixels, $this.RealEstate
+        }
+        elseif ($this.MorePixels -eq 'Screen A (Reference Spec)') {
+            $msg = 'Screen B has {0} less pixels than {1}' -f $this.RealEstate,$this.MorePixels
+        }
+        return $msg
+    }
 }

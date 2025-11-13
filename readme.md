@@ -79,3 +79,37 @@ Show-ScreenSpec $Spec
 │ MegaPixel 11.1  7.1    ││ Pitch  0.18mm  ││                 │
 └────────────────────────┘└────────────────┘└─────────────────┘
 ```
+
+
+```PowerShell
+# compare 2 screens
+
+# a 4K 32" screen at 150% scaling
+$s1 =  Get-ScreenSpec -Size 31.5 -HorizRes 3840 -VertRes 2160 -Scaling 150
+
+# a 5K2K 40" ultrawide screen at 150% scaling
+$s2 =  Get-ScreenSpec -Size 39.7 -HorizRes 5120 -VertRes 2160 -Scaling 150 -HorizRatio 21.33
+
+# compare them
+$c = Compare-ScreenSpec -ReferenceSpec $s1 -DifferenceSpec $s2
+
+Write-Output $c
+<# returns:
+RealEstate  : +32%
+MorePixels  : Screen B (Difference Spec)
+MoreClarity : Same screen clarity
+SmallerText : Same text size
+Wider       : Screen B (Difference Spec)
+Taller      : Same screen height
+WidthDiff   : +23.2cm
+HeightDiff  : 0cm
+PpiDiff     : +0.1 PPI
+#>
+
+$c.ToString()
+# returns: Screen B (Difference Spec) has +32% more pixels than Screen A
+
+```
+
+Sample screenshot of the output from the `Compare-ScreenSpec` function:
+![Sample screenshot of the output from the `Compare-ScreenSpec` function](/Docs/Sample_Comparison.png)

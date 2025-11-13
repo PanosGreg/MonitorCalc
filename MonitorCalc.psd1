@@ -4,7 +4,7 @@
 
 @{
 RootModule        = 'MonitorCalc.psm1'
-ModuleVersion     = '1.0.0'
+ModuleVersion     = '1.1.0'
 GUID              = '0b244c1e-b471-49a0-914d-dc8dba4e4715'
 Author            = 'Panos Grigoriadis'
 #CompanyName       = ''
@@ -17,6 +17,7 @@ PowerShellVersion = '7.5'
 RequiredModules   = @(
                     )
 FunctionsToExport = @(
+                    'Compare-ScreenSpec'
                     'Get-ScreenSpec'
                     'Show-ScreenSpec'
                     )
@@ -35,6 +36,7 @@ FileList          = @(
                     'Data\BorderLines.psd1'
                     'Data\DisplayInterfaces.psd1'
                     'Public\Get-ScreenSpec.ps1'
+                    'Public\Compare-ScreenSpec.ps1'
                     'Public\Show-ScreenSpec.ps1'
                     'Private\ConvertTo-Border.ps1'
                     'Private\ConvertTo-Cell.ps1'
